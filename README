@@ -1,3 +1,13 @@
 Automatically grabs bier updates from the Bier Brewery website (http://www.bierbrewery.com/) and
 publishes them to the Bierbot twitter feed. Mostly just HTML surgery, so prone to failure, fits 
 of spontaneous anger, and spectacular flameouts. 
+
+Requires your Twitter creds to be specfied in a .bier_bot_auth YAML file of the form:
+
+consumer_key: "app consumer key"
+consumer_secret: "app consumer secret"
+oauth_token: "oauth token"
+oauth_token_secret: "oauth token secret"
+
+
+REQ Gems Hpricot >= 0.5, Twitter >= 1.1
