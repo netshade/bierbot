@@ -112,11 +112,21 @@ if to_write != target_memory
     config.oauth_token_secret = twitter_config['oauth_token_secret']
   end
 
+  def twitten(txt, tail)
+    combined = txt + tail
+    if combined.size > 140
+      ellip = ".."
+      ntxt = txt[0.. txt.size - ((combined.size - 139) + ellip.size)]
+      combined = ntxt + ellip + tail
+    end
+    combined
+  end
+
   date_str = Time.now.strftime("%b %d").upcase
-  upcoming_text = "#{date_str} UPCOMING: " + up_and_coming.collect { |bier, desc| "#{bier}: #{desc}" }.join(",")
-  this_week_text = "#{date_str} BIERS: " + this_week.join(",")
   attribution = " http://www.bierbrewery.com/"
-  Twitter.update(upcoming_text + attribution)
-  Twitter.update(this_week_text + attribution)
+  upcoming_text = "#{date_str} UPCOMING: " + up_and_coming.collect { |bier, desc| "#{bier}: #{desc}" }.join(",") 
+  this_week_text = "#{date_str} BIERS: " + this_week.join(",")
+  Twitter.update(twitten(upcoming_text, attribution))
+  Twitter.update(twitten(this_week_text, attribution))
 end
 
