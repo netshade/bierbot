@@ -1,0 +1,3 @@
+Automatically grabs bier updates from the Bier Brewery website (http://www.bierbrewery.com/) and
+publishes them to the Bierbot twitter feed. Mostly just HTML surgery, so prone to failure, fits 
+of spontaneous anger, and spectacular flameouts. 
